@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Imperial+Script&family=Tilt+Prism:XROT,YROT@19,22&display=swap');
+
+
+body {
+    background-color: #ddd;
+}
+
+.container {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 50px;
+}
+
+.container>div {
+    background-size: cover;
+    width: 335px;
+    height: 60vh;
+    border-radius: 20px;
+
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.18);
+
+    animation: start 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes start {
+    0% {
+        width: 50px;
+        height: 50px;
+        background-size: 400%;
+        border-radius: 50%;
+        filter: blur(3px);
+        transform: translateX(600px);
+    }
+
+    50% {
+        width: 50px;
+        height: 50px;
+        background-size: 400%;
+        border-radius: 50%;
+        filter: blur(3px);
+        transform: translateX(00px);
+    }
+
+    70% {
+        filter: blur(5px);
+    }
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+}
+
+.card:hover {
+    animation: parent 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes parent {
+    to {
+        overflow: visible;
+    }
+}
+.card:not(:hover) {
+    animation: removeParent 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes removeParent {
+    from {
+        overflow: visible;
+    }
+    to {
+        overflow: hidden;
+    }
+}
+
+.container>div:nth-child(1) {
+    background-image: url(Images/BananaCupcakes.jpg);
+}
+
+.container>div:nth-child(2) {
+    background-image: url(Images/IceCreamCupcakes.jpg);
+}
+
+.container>div:nth-child(3) {
+    background-image: url(Images/OREOCupcakes.jpg);
+}
+
+
+
+.overlap {
+    position: absolute;
+    bottom: -32%;
+
+    background-color: white;
+    padding: 20px;
+    width: 70%;
+
+    border-radius: 20px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.18);
+    opacity: 0;
+
+}
+
+.container>div:hover .overlap {
+    animation: move 1.2s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+    transition: opacity .3s;
+
+}
+@keyframes move {
+    50% {
+        bottom: 20%;
+    }
+
+    100% {
+        bottom: -10%;
+    }
+}
+
+.container>div:not(:hover) .overlap {
+    bottom: -10%;
+    animation: removeMove 1.2s;
+    animation-fill-mode: forwards;
+    transition: opacity 2s;
+}
+@keyframes removeMove {
+    50% {
+        bottom: 20%;
+    }
+
+    100% {
+        bottom: -32%;
+    }
+}
+
+.container>div:hover .overlap svg{
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+
+    animation: moveSVG 1s linear;
+    animation-fill-mode: forwards;
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+@keyframes moveSVG {
+    0%{
+        transform: translateY(-250px) rotate(500deg);
+    }
+
+}
+
+.container>div:not(:hover) .overlap svg{
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    animation: removeMoveSVG 1s linear;
+    animation-fill-mode: forwards;
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+@keyframes removeMoveSVG {
+    0%{
+        transform: translateY(-0px) rotate(500deg);
+    }
+    50%{
+        transform: translateY(-150px);
+    }
+
+}
+
+
+
+@media(max-width:1121px){
+    .container>div{
+    margin-bottom: 100px;
+
+    }
+}
