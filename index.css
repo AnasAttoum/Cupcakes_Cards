@@ -8,18 +8,21 @@ body {
 }
 
 .container {
-    height: 95vh;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     column-gap: 50px;
+    width: 100vw;
+    height: 30vw;
 }
 
 .container>div {
-    background-size: cover;
-    width: 335px;
-    height: 60vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 22vw;
+    height: 100%;
     border-radius: 20px;
 
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.18);
@@ -121,7 +124,13 @@ body {
     animation-fill-mode: forwards;
     opacity: 1;
     transition: opacity .3s;
-
+}
+.overlap p:nth-child(1) {
+    font-size: 1.2vw;
+}
+.overlap p:nth-child(2) {
+    color: #666;
+    font-size: 1vw;
 }
 
 @keyframes move {
@@ -212,9 +221,38 @@ body {
 
 
 
-@media(max-width:1121px) {
+@media(max-width:1200px) {
     .container>div {
         margin-bottom: 100px;
-
     }
 }
+
+@media(max-width:900px) {
+    .overlap p:nth-child(1) {
+        font-size: 2vw;
+    }
+    .overlap p:nth-child(2) {
+        font-size: 1.3vw;
+    }
+    .container div:nth-child(1) span {
+        width: 4rem;
+        height: 4rem;
+    }
+    .container div:nth-child(2) span {
+        background-image: var(--strawberry);
+        width: 3rem;
+        height: 3rem;
+    }
+    .container div:nth-child(3) span {
+        background-image: var(--cookie);
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+/* @media(max-width:600px) {
+    .container>div {
+        width: 22vw;
+        height: 100%;
+    }
+} */
